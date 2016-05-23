@@ -1,5 +1,5 @@
 " basics
-colorscheme darkblue
+" colorscheme darkblue
 set number
 set shiftwidth=4
 set tabstop=4
@@ -29,8 +29,5 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" http://stackoverflow.com/questions/17677441/changing-error-highlight-color-used-by-syntastic
-" hi SpellBad ctermfg=166 ctermbg=016 
-" hi SpellCap ctermfg=166 ctermbg=016
-" highlight link SyntasticError SpellBad
-" highlight link SyntasticWarning SpellCap
+" http://stackoverflow.com/questions/30501271/changing-color-of-vim-syntastic-error-window 
+hi Search ctermfg=white ctermbg=blue
