@@ -1,5 +1,5 @@
 " basics
-" :colorscheme darkblue
+colorscheme darkblue
 set number
 set shiftwidth=4
 set tabstop=4
@@ -19,3 +19,18 @@ execute pathogen#infect()
 set laststatus=2
 let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
+
+" for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" http://stackoverflow.com/questions/17677441/changing-error-highlight-color-used-by-syntastic
+" hi SpellBad ctermfg=166 ctermbg=016 
+" hi SpellCap ctermfg=166 ctermbg=016
+" highlight link SyntasticError SpellBad
+" highlight link SyntasticWarning SpellCap
