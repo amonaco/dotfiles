@@ -26,21 +26,19 @@ alias hr="history -r"
 alias bc="bc -l"
 
 # stuff
-source /etc/bash-powerline.sh
+source ~/.bash-powerline.sh
 export LC_ALL="en_US.UTF-8"
 
 # golang
-export GOPATH=$HOME/go
-export PATH=$PATH:/root/go/bin:/usr/local/bin:/usr/local/go/bin
+# export GOPATH=$HOME/go
+# export PATH=$PATH:/root/go/bin:/usr/local/bin:/usr/local/go/bin
 
 # local
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/nginx/sbin/
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/nginx/sbin/:/opt/homebrew/bin/
 
 # python
-alias python='python3.6'
-alias pip='pip3'
-alias flask_run='export FLASK_RUN_HOST=0.0.0.0 && ./run-dev-server.sh'
-# scl enable rh-python36 bash
+# alias flask_run='export FLASK_RUN_HOST=0.0.0.0 && ./run-dev-server.sh'
+### scl enable rh-python36 bash
 
 # ruby
 # source /usr/local/rvm/scripts/rvm
@@ -56,4 +54,12 @@ export TERM=xterm-256color
 export ENV="dev"
 export VISUAL=vim
 export HOSTALIASES=~/.hosts
-# export PS1='\[\033[02;32m\]\h:\033[00m\]\w\$ '
+export PS1='\[\033[02;32m\]\h:\035[00m\]\w\$ '
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
+eval "$(pyenv virtualenv-init -)"
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+

@@ -28,6 +28,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:airline_powerline_fonts = 1
+
 
 " http://stackoverflow.com/questions/30501271/changing-color-of-vim-syntastic-error-window 
 hi Search ctermfg=white ctermbg=blue
