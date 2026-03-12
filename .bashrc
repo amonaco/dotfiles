@@ -1,15 +1,27 @@
-# ~/.bashrc
-[ -z "$PS1" ] && return
+# .bashrc
 
-HISTCONTROL=ignoredups:ignorespace
-HISTSIZE=1000000
-HISTFILESIZE=200000
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
 
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Bash stuff
+export HISTCONTROL=ignoredups:ignorespace
+export HISTSIZE=1000000
+export HISTFILESIZE=200000
+export BASH_SILENCE_DEPRECATION_WARNING=1
 shopt -s histappend
 shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# aliases
+# Aliases
 alias ls='ls --color'
 alias l='ls -la'
 alias ll='ls -l'
@@ -24,42 +36,39 @@ alias hs="history -a"
 alias hr="history -r"
 alias bc="bc -l"
 
-# stuff
+# Powerline
 source ~/.bash-powerline.sh
-export LC_ALL="en_US.UTF-8"
 
-# golang
+# Golang (Old ways)
 # export GOPATH=$HOME/go
 # export PATH=$PATH:/root/go/bin:/usr/local/bin:/usr/local/go/bin
 
-# local
+# Local
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/local/nginx/sbin/:/opt/homebrew/bin/
+export LC_ALL="en_US.UTF-8"
 
-# python
-# alias flask_run='export FLASK_RUN_HOST=0.0.0.0 && ./run-dev-server.sh'
-### scl enable rh-python36 bash
-
-# ruby
+# Ruby
 # source /usr/local/rvm/scripts/rvm
 # rvm use 2.3.7
 # alias pry='pry -r ./config/environment'
 
-# erlang
+# Erlang
 # source .kerl/archives/21.2/activate
 # source .kiex/scripts/kiex
 
-# other exports
-export TERM=xterm-256color
+# Other
 export ENV="dev"
+export TERM=xterm-256color
 export VISUAL=vim
 export HOSTALIASES=~/.hosts
-export PS1='\[\033[02;32m\]\h:\035[00m\]\w\$ '
+# export PS1='\[\033[02;32m\]\h:\035[00m\]\w\$ '
 
+# Using when on OSX
+# export GOROOT="/opt/homebrew/Cellar/go/1.24.5/libexec"
+# export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+
+# Load pyenv automatically by appending
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - bash)"
 eval "$(pyenv virtualenv-init -)"
-export BASH_SILENCE_DEPRECATION_WARNING=1
-
-# export GOROOT="/opt/homebrew/Cellar/go/1.24.5/libexec"
-export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
